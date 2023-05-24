@@ -1,3 +1,4 @@
+---
 kind: pipeline
 type: exec
 name: default
@@ -9,3 +10,22 @@ steps:
 - name: greeting
   commands:
   - echo hello world
+
+---
+kind: pipeline
+type: docker
+name: Drone ci
+
+platform:
+  os: linux
+  arch: arm64
+
+steps:
+- name: line-notify
+  image: shundevhub/drone-line-notify
+  settings:
+    line_access_token:
+      from_secret: line_access_token
+  when:
+    event:
+    - push
