@@ -4,7 +4,8 @@ type: exec
 name: default
 
 platform:
-  # arch: arm64
+  os: darwin
+  arch: arm64
 
 steps:
 - name: greeting
