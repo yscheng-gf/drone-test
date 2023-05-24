@@ -4,14 +4,13 @@ type: exec
 name: default
 
 platform:
-  os: darwin
+  os: linux
   arch: arm64
 
 steps:
 - name: greeting
   commands:
   - echo hello world
-
 ---
 kind: pipeline
 type: docker
@@ -27,6 +26,3 @@ steps:
   settings:
     line_access_token:
       from_secret: line_access_token
-  when:
-    event:
-    - push
